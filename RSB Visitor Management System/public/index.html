@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Visitor Management System</h1>
+    </header>
+    <nav style="margin-bottom: 20px;">
+      <a href="/dashboard.html" style="color: var(--primary-color); text-decoration: none;">
+        View Visitor Dashboard →
+      </a>
+    </nav>
+    
+    <main>
+      <section class="form-section">
+        <div class="camera-container">
+          <video id="video" width="320" height="240" autoplay playsinline></video>
+          <button id="capture-btn" class="btn">Capture Photo</button>
+          <canvas id="canvas" width="320" height="240" aria-hidden="true"></canvas>
+        </div>
+        
+        <form id="visitor-form" class="visitor-form">
+          <div class="form-group">
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" required aria-required="true">
+          </div>
+          
+          <div class="form-group">
+            <label for="contact_number">Contact Number:</label>
+            <input type="tel" id="contact_number" required aria-required="true" pattern="[0-9]{10}">
+          </div>
+          
+          <div class="form-group">
+            <label for="department_visiting">Department Visiting:</label>
+            <select id="department_visiting" required aria-required="true">
+              <option value="">Select Department</option>
+              <option value="HR">Human Resources</option>
+              <option value="IT">ITMS</option>
+              <option value="Finance">Finance</option>
+              <option value="Production">Production</option>
+              <option value="Quality">Quality</option>
+              <option value="Purchase">Purchase</option>
+              <option value="Engineering">Engineering & Development</option>
+              <option value="Business">Business Development</option>
+              <option value="Sales">Sales</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="person_to_visit">Person to Visit:</label>
+            <input type="text" id="person_to_visit" required aria-required="true">
+          </div>
+          
+          <input type="hidden" id="photo-data">
+          
+          <button type="submit" class="btn btn-primary">Register Visitor</button>
+        </form>
+      </section>
+      
+      <section id="visitor-badge" class="visitor-badge hidden" aria-live="polite">
+        <h2>Visitor Badge</h2>
+        <img id="badge-photo" src="" alt="Visitor Photo">
+        <div class="badge-info">
+          <p><strong>Name:</strong> <span id="badge-name"></span></p>
+          <p><strong>Contact:</strong> <span id="badge-contact"></span></p>
+          <p><strong>Visiting:</strong> <span id="badge-department"></span></p>
+          <p><strong>Host:</strong> <span id="badge-host"></span></p>
+          <p><strong>Time In:</strong> <span id="badge-time"></span></p>
+        </div>
+        <button id="print-btn" class="btn">Print Badge</button>
+      </section>
+    </main>
+  </div>
+  
+  <script src="script.js" defer></script>
+</body>
+</html>
